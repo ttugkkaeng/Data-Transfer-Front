@@ -1,4 +1,5 @@
 import App from '../App'
+import SideNavigator from '../components/Organisms/SideNavigator';
 import ErrorPage from '../components/Pages/ErrorPage';
 import LoginPage from '../components/Pages/LoginPage';
 import MainPage from '../components/Pages/MainPage';
@@ -17,5 +18,9 @@ export const Router = [
     path: '/Login',
     element: <LoginPage />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: '/testComponent',
+    element: <SideNavigator />
   }
 ];

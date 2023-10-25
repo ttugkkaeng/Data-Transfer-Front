@@ -5,7 +5,7 @@ import TestPage from './components/Pages/TestPage';
 
 function App() {
   const navigator = useNavigate();
-  const [loginState] = useState(false);
+  const [loginState] = useState(true);
   if (!loginState) {
     navigator("/Login")
   }
