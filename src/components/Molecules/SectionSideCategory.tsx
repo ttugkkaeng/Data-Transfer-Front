@@ -1,5 +1,5 @@
 import BtnLink from '../Atoms/BtnLink'
-
+import './SectionSideCategory.css'
 type btnLinkValue = {
   value: string,
   link: string
@@ -10,15 +10,11 @@ type propType = {
 }
 export default function SectionSideCategory(props: propType) {
   return (
-    <div>
-      <h3>{props.title}</h3>
+    <div className='Sidebardiv'>
+      <div className='CategoryTitle'>{props.title}</div>
       {props.item.map((item, index) => (
         <BtnLink key={index} btnValue={item.value} btnLink={item.link} />
       ))}
     </div >
   )
 }
-
-
-
-//<h4 key={index}>{item.value}</h4>

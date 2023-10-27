@@ -1,8 +1,9 @@
 import App from '../App'
+import PostTestCom from '../components/Atoms/PostTestCom';
+import InfoText from '../components/Organisms/InfoText';
 import SideNavigator from '../components/Organisms/SideNavigator';
 import ErrorPage from '../components/Pages/ErrorPage';
 import LoginPage from '../components/Pages/LoginPage';
-import MainPage from '../components/Pages/MainPage';
 
 export const Router = [
   {
@@ -10,8 +11,8 @@ export const Router = [
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <MainPage /> },
-      { path: "page1", element: <ErrorPage /> }
+      { index: true, element: <InfoText /> },
+      { path: "WssList", element: <PostTestCom /> }
     ],
   },
   {

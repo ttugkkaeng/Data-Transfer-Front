@@ -1,8 +1,10 @@
 import SectionSideCategory from '../Molecules/SectionSideCategory';
+import './SideNavigator.css';
+import '../../Common/Common.css';
 
 export default function SideNavigator() {
   const firstitem = [
-    { value: "지라 프로젝트 생성요청", link: "/jirapjcreate" },
+    { value: "지라 프로젝트 생성요청", link: "/WssList" },
     { value: "프로젝트 티켓생성요청", link: "/jiratkcreate" },
     { value: "이관상태 확인", link: "/checkpj" },
   ]
@@ -12,9 +14,9 @@ export default function SideNavigator() {
     { value: "백업상태 확인", link: "/backcheck" },
   ]
   return (
-    <div>
+    <div className='SideNavigator'>
       <SectionSideCategory title='WSS to Jira' item={firstitem} />
-      <br />
+      <p className='divisionLine' />
       <SectionSideCategory title='Jira to WSS' item={seconditem} />
     </div>
   )

@@ -1,0 +1,12 @@
+.BtnLink{
+  margin-top : 1.3rem;
+  font-size: 1.2rem;
+  color : #9ca3af;
+  width : 65%;
+  border-radius : 0.25rem;
+}
+
+.BtnLink:hover{
+  background : #4338ca;
+  cursor : pointer;
+}

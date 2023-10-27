@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginPage from './components/Pages/LoginPage';
-import TestPage from './components/Pages/TestPage';
+import "./App.css"
+import MainPage from './components/Pages/MainPage';
 
 function App() {
   const navigator = useNavigate();
@@ -10,7 +11,7 @@ function App() {
     navigator("/Login")
   }
   return (
-    (loginState ? <TestPage /> : <LoginPage />)
+    (loginState ? <MainPage /> : <LoginPage />)
   )
 }
 
