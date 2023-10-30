@@ -16,7 +16,7 @@ export default function SideNavigator() {
   return (
     <div className='SideNavigator'>
       <SectionSideCategory title='WSS to Jira' item={firstitem} />
-      <p className='divisionLine' />
+      <div className='divisionLine' />
       <SectionSideCategory title='Jira to WSS' item={seconditem} />
     </div>
   )

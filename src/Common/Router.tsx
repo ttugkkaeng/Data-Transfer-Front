@@ -12,7 +12,7 @@ export const Router = [
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <InfoText /> },
-      { path: "WssList", element: <PostTestCom /> }
+      { path: "load-wss", element: <PostTestCom /> }
     ],
   },
   {

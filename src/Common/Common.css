@@ -1,3 +1,9 @@
 .divisionLine{
+  width : 95%;
+  margin : 0 auto;
   border-top: 1px solid #9ca3af;
+}
+.MainPageTem{
+  background-color : #312e81;
+  height : 90vh;
 }

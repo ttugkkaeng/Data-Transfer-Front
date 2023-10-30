@@ -6,12 +6,9 @@ type propsType = {
   btnLink: string
 }
 export default function BtnLink(props: propsType) {
-  const handleBtnClick = () => {
-    alert(props.btnLink);
-  }
   return (
     <Link to={props.btnLink}>
-      <div className='BtnLink' onClick={handleBtnClick}> {props.btnValue}</div>
+      <div className='BtnLink'> {props.btnValue}</div>
     </Link>
   )
 }

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginPage from './components/Pages/LoginPage';
-import "./App.css"
 import MainPage from './components/Pages/MainPage';
 
 function App() {
