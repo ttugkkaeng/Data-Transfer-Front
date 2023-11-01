@@ -1,3 +1,14 @@
-.MainPageTem div{
-  display: inline-block;
+.first-section-div {}
+
+.contents-section-style {
+  display: flex;
+  background-color: #b45309;
+  flex: 1;
+}
+
+.outlet-wrapper {
+  flex-grow: 1;
+  background-color: #65a30d;
+  overflow: auto;
+
 }

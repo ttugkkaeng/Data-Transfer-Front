@@ -4,15 +4,17 @@ import PageHeader from '../Organisms/PageHeader';
 import SideNavigator from '../Organisms/SideNavigator';
 import './MainPageTemplate.css';
 
-export default function MainPageTem() {
+export default function MainPageTemplate() {
   return (
-    <div>
+    <main className='first-section-div'>
       <PageHeader />
-      <div className='MainPageTem'>
+      <div className='contents-section-style'>
         <SideNavigator />
-        <Outlet />
+        <div className='outlet-wrapper'>
+          <Outlet />
+        </div>
       </div>
       <PageFooter />
-    </div>
+    </main>
   )
 }

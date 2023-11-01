@@ -4,7 +4,7 @@ import '../../Common/Common.css';
 
 export default function SideNavigator() {
   const firstitem = [
-    { value: "지라 프로젝트 생성요청", link: "/WssList" },
+    { value: "지라 프로젝트 생성요청", link: "/load-wss" },
     { value: "프로젝트 티켓생성요청", link: "/jiratkcreate" },
     { value: "이관상태 확인", link: "/checkpj" },
   ]
@@ -14,9 +14,9 @@ export default function SideNavigator() {
     { value: "백업상태 확인", link: "/backcheck" },
   ]
   return (
-    <div className='SideNavigator'>
+    <div className='side-navigator'>
       <SectionSideCategory title='WSS to Jira' item={firstitem} />
-      <div className='divisionLine' />
+      <div className='division-line' />
       <SectionSideCategory title='Jira to WSS' item={seconditem} />
     </div>
   )

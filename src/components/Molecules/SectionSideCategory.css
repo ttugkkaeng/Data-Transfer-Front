@@ -1,11 +1,11 @@
-.Sidebardiv{
-  margin-bottom : 1.5rem;
-  margin-top : 1rem;
-  padding-left : 20px;
+.siebar-div {
+  padding-left: 20px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
-.CategoryTitle{
-  color : #9ca3af;
-  font-size : 2rem;
-  font-weight : bold;
+.category-title {
+  color: #9ca3af;
+  font-size: 2rem;
+  font-weight: bold;
 }

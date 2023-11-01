@@ -10,11 +10,11 @@ type SectionSideCategoryProps = {
   item: Array<btnLinkValue>
 }
 
-export default function SectionSideCategory({ title, item }: SectionSideCategoryProps) {
+export default function SectionSideCategory(props: SectionSideCategoryProps) {
   return (
-    <div className='Sidebardiv'>
-      <div className='CategoryTitle'>{title}</div>
-      {item.map((item, index) => (
+    <div className='siebar-div'>
+      <div className='category-title'>{props.title}</div>
+      {props.item.map((item, index) => (
         <BtnLink key={index} btnValue={item.value} btnLink={item.link} />
       ))}
     </div >

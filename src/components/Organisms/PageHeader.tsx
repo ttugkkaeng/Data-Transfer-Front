@@ -3,10 +3,10 @@ import './PageHeader.css';
 
 export default function PageHeader() {
   return (
-    <div className='HeaderBox'>
+    <header className='header-style'>
       <Link to="/">
         Here is PageHeader
       </Link>
-    </div>
+    </header>
   )
 }

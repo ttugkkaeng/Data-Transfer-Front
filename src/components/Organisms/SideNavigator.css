@@ -1,7 +1,8 @@
-.SideNavigator{
-  background-color : #312e81;
+.side-navigator {
+  background-color: #312e81;
   border-right: 1px solid #9ca3af;
-  width : 320px;
-  height : 90vh;
-  
+  width: 320px;
+  flex-shrink: 0;
+  height: calc(100vh - var(--header-height) - var(--footer-height));
+
 }

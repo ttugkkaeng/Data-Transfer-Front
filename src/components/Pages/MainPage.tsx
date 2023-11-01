@@ -1,5 +1,5 @@
-import MainPageTem from '../Templates/MainPageTemplate';
+import MainPageTemplate from '../Templates/MainPageTemplate';
 
 export default function MainPage() {
-  return <MainPageTem />
+  return <MainPageTemplate />
 }

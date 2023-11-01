@@ -8,7 +8,7 @@ type propsType = {
 export default function BtnLink(props: propsType) {
   return (
     <Link to={props.btnLink}>
-      <div className='BtnLink'> {props.btnValue}</div>
+      <div className='btn-link'> {props.btnValue}</div>
     </Link>
   )
 }
