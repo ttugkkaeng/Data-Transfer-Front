@@ -1,9 +1,6 @@
-.first-section-div {}
-
 .contents-section-style {
   display: flex;
   background-color: #b45309;
-  flex: 1;
 }
 
 .outlet-wrapper {

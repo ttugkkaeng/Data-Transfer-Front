@@ -6,7 +6,7 @@ import './MainPageTemplate.css';
 
 export default function MainPageTemplate() {
   return (
-    <main className='first-section-div'>
+    <main>
       <PageHeader />
       <div className='contents-section-style'>
         <SideNavigator />

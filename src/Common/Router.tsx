@@ -1,7 +1,7 @@
 import App from '../App'
-import PostTestCom from '../components/Atoms/PostTestCom';
+import PostForm from '../components/Molecules/PostForm';
+import GetTableAndPostData from '../components/Organisms/GetTableAndPostData';
 import InfoText from '../components/Organisms/InfoText';
-import SideNavigator from '../components/Organisms/SideNavigator';
 import ErrorPage from '../components/Pages/ErrorPage';
 import LoginPage from '../components/Pages/LoginPage';
 
@@ -12,7 +12,9 @@ export const Router = [
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <InfoText /> },
-      { path: "load-wss", element: <PostTestCom /> }
+      { path: "load-wsslist", element: <GetTableAndPostData /> },
+      { path: "transfer-state-list", element: <GetTableAndPostData /> },
+      { path: "view-transfer-endlist", element: <GetTableAndPostData /> },
     ],
   },
   {
@@ -22,6 +24,6 @@ export const Router = [
   },
   {
     path: '/testComponent',
-    element: <SideNavigator />
+    element: <PostForm />
   }
 ];
