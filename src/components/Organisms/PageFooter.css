@@ -1,4 +1,10 @@
 .footer-style {
+  background-color: #083078;
   height: var(--footer-height);
-  background-color: #f87171;
+  padding-top: 10px;
+  text-align: center;
+  font-weight: 400;
+  border-top: 1px solid #bdbcbc;
+  font-size: 11px;
+  color: #ffffff;
 }

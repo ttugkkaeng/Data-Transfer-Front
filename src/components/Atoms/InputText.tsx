@@ -1,8 +1,11 @@
+import './InputText.css';
 type propsType = {
-  inputid: string
-}
-export default function InputText({ inputid }: propsType) {
+  inputid: string;
+  value: string;
+  changeHandle: () => void;
+};
+export default function InputText(props: propsType) {
   return (
-    <input type='text' id={inputid}></input>
+    <input type='text' id={props.inputid} value={props.value} onChange={props.changeHandle}></input>
   )
 }

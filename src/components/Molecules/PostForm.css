@@ -1,5 +1,8 @@
-.post-input-box {
+#searchArea {
+  flex-direction: row;
+  width: 70%;
+  margin: 0 auto;
+  align-items: center;
+  /* testCSS */
   background: #e11d48;
-  width: 80%;
-  height: 70px;
 }

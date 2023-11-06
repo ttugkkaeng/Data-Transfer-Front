@@ -1,5 +1,9 @@
-export default function BtnSubmit(children: string = '전송') {
+import './BtnSubmit.css';
+type propsType = {
+  children: string
+}
+export default function BtnSubmit({ children = '전송' }: propsType) {
   return (
-    <button type='submit'>{children}</button>
+    <button type='submit' className='btnHover blueColor'>{children}</button>
   )
 }

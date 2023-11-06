@@ -5,7 +5,7 @@ export default function PageHeader() {
   return (
     <header className='header-style'>
       <Link to="/">
-        Here is PageHeader
+        <img src="/public/images/logo.png" className="markanyLogo" />
       </Link>
     </header>
   )
