@@ -1,11 +1,10 @@
 .contents-section-style {
   display: flex;
-  background-color: #b45309;
 }
 
 .outlet-wrapper {
   flex-grow: 1;
-  background-color: #65a30d;
+  background-color: #083078;
   overflow: auto;
 
 }

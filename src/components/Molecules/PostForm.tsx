@@ -3,44 +3,35 @@ import { UseGetAxiosPageing } from '../../Common/Axios';
 import BtnSubmit from '../Atoms/BtnSubmit';
 import InputLabel from '../Atoms/InputLabel';
 import InputText from '../Atoms/InputText';
+import { returnJsonType } from '../../Common/Types';
 import './PostForm.css';
 
-interface returnJsonType {
-  content: Array<object>;
-  empty: boolean
-  first: boolean
-  last: boolean
-  number: number
-  numberOfElements: boolean
-  pagealbe: object
-  size: number
-  sort: object
-  totalElements: number
-  titalPage: number
-}
+type propsType = {
+  pageIndex: number;
+  getSerchURL: string;
+  setGetViewList: returnJsonType | undefined
+};
 
-
-export default function PostForm() {
-  //testValue
-  const testIndex = 0;
-  const testGetURL = "http://localhost:8080//transfer/project/after/list";
-  const [setTestGetResult] = useState<returnJsonType>();
-  //---------------------
+export default function PostForm({ pageIndex, getSerchURL, setGetViewList }: propsType) {
   const inputId = 'serchInput';
   const btnValue: string = "검색";
   const pageSize = "10";
   const [input, setInput] = useState<string>('');
-  const handleChangeText = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+  const handleChangeText: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setInput(e.target.value);
   };
-  const handleFormSubmit = () => {
-    setTestGetResult(UseGetAxiosPageing(testGetURL, testIndex, pageSize));
+  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); //새로고침방지
+    const result = await UseGetAxiosPageing(getSerchURL, pageIndex, pageSize);
+    setGetViewList(result);
   }
+
   return (
     <div id='searchArea'>
       <form onSubmit={handleFormSubmit}>
         <InputLabel inputId={inputId} />
-        <InputText inputid={inputId} value={input} changeHandle={() => handleChangeText} />
+        <InputText inputid={inputId} value={input} changeHandle={handleChangeText} />
         <BtnSubmit>{btnValue}</ BtnSubmit>
       </form>
     </div>

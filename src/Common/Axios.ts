@@ -1,17 +1,5 @@
 import axios from 'axios';
-interface returnJsonType {
-  content: Array<object>;
-  empty: boolean
-  first: boolean
-  last: boolean
-  number: number
-  numberOfElements: boolean
-  pagealbe: object
-  size: number
-  sort: object
-  totalElements: number
-  titalPage: number
-}
+import { returnJsonType } from './Types';
 
 const useGetAxios = (URL: string, getParamKey: string, getParamValue: string) => {
   const getUrl = `${URL}?${getParamKey}=${getParamValue}`;
@@ -25,17 +13,19 @@ const useGetAxios = (URL: string, getParamKey: string, getParamValue: string) =>
     })
 }
 
-const UseGetAxiosPageing = (URL: string, startIndex: number, pageSize: string,) => {
-  const indexingParam = `?pageIndex=${startIndex}&&pageSize=${pageSize}`
+const UseGetAxiosPageing = async (URL: string, startIndex: number, pageSize: string,): Promise<returnJsonType | undefined> => {
+  const indexingParam = `?pageIndex=${startIndex}&&pageSize=${pageSize}`;
   const getUrl = URL + indexingParam;
-  axios.get(getUrl)
-    .then((Respone) => {
-      console.log(Respone.data);
-      return Respone.data;
-    })
-    .catch((Error) => {
-      console.log(Error)
-    })
-}
+  console.log(getUrl);
+  try {
+    const reponse = await axios.get(getUrl);
+    console.log(reponse.data);
+    return reponse.data;
+  }
+  catch (Error) {
+    console.log(Error);
+    throw Error;
+  }
+};
 
 export { useGetAxios, UseGetAxiosPageing };

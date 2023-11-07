@@ -2,7 +2,7 @@ import './InputText.css';
 type propsType = {
   inputid: string;
   value: string;
-  changeHandle: () => void;
+  changeHandle: React.ChangeEventHandler<HTMLInputElement>;
 };
 export default function InputText(props: propsType) {
   return (

@@ -1,6 +1,14 @@
 .header-style {
-  background-color: #9ca3af;
+  background-color: #083078;
   height: var(--header-height);
   margin: 0;
   padding: 0;
+  border-bottom: 1px solid #bdbcbc;
+}
+
+/*상단 마크애니 로고*/
+.markanyLogo {
+  width: 150px;
+  margin-top: 10px;
+  margin-left: 20px;
 }
