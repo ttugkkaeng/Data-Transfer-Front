@@ -1,5 +1,19 @@
+// enum contentMember {
+//   projectCode = 'projectCode',
+//   projectName = 'projectName',
+//   projectFlag = 'projectFlag',
+//   createdDate = 'createdDate',
+//   migrateFlag = 'migrateFlag',
+// }
+type content = {
+  projectCode: string;
+  projectName: string;
+  projectFlag: string;
+  createdDate: string;
+  migrateFlag: string;
+}
 export interface returnJsonType {
-  content: Array<object>;
+  content: Array<content>;
   empty: boolean
   first: boolean
   last: boolean

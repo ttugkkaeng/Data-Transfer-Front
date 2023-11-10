@@ -1,7 +1,11 @@
 import './Table.css';
-import { testJson } from '../../Common/TestGetJson';
+import { returnJsonType } from '../../Common/Types';
 
-export default function Table() {
+type propsType = {
+  getViewList: returnJsonType | undefined;
+}
+
+export default function Table({ getViewList }: propsType) {
   return (
     <div className='table-area'>
       <table className='project-table'>
@@ -12,21 +16,29 @@ export default function Table() {
             <th scope='col' className='date-th'>업데이트 날짜</th>
           </tr>
         </thead>
-        <tbody>
-          {testJson.content.map((item, index) => (
-            <tr className='protr'>
-              <td>
-                <input type='checkbox' name={`checkbox${index}`} value='test' />
-              </td>
-              <td>
-                {`(${item.projectCode}) `}{item.projectName}
-              </td>
-              <td>
-                {item.createdDate}
-              </td>
-            </tr>
-          ))}
-        </tbody>
+        {getViewList !== undefined ?
+          <tbody>
+            {
+              getViewList.content.map((item, index) => (
+                <tr className='protr' key={item.projectCode}>
+                  <td>
+                    <input type='checkbox' name={`checkbox${index}`} value='test' />
+                  </td>
+                  <td>
+                    {`(${item.projectCode}) `}{item.projectName}
+                  </td>
+                  <td>
+                    {item.createdDate}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+          :
+          <tbody className='no-data-text'>
+            <tr><td>No data</td></tr>
+          </tbody>
+        }
       </table>
     </div>
   )

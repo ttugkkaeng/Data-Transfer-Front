@@ -13,7 +13,8 @@ const useGetAxios = (URL: string, getParamKey: string, getParamValue: string) =>
     })
 }
 
-const UseGetAxiosPageing = async (URL: string, startIndex: number, pageSize: string,): Promise<returnJsonType | undefined> => {
+const UseGetAxiosPageing = async (URL: string, startIndex: number, pageSize: string,)
+  : Promise<returnJsonType | undefined> => {
   const indexingParam = `?pageIndex=${startIndex}&&pageSize=${pageSize}`;
   const getUrl = URL + indexingParam;
   console.log(getUrl);
@@ -28,4 +29,22 @@ const UseGetAxiosPageing = async (URL: string, startIndex: number, pageSize: str
   }
 };
 
-export { useGetAxios, UseGetAxiosPageing };
+const UseGetAxiosSearch = async (URL: string, searchKeyWord: string, startIndex: number, pageSize: string)
+  : Promise<returnJsonType | undefined> => {
+  const indexingParam = `?searchKeyWord=${searchKeyWord}&pageIndex=${startIndex}&pageSize=${pageSize}`;
+  const getUrl = URL + indexingParam;
+  console.log(getUrl);
+  try {
+    const reponse = await axios.get(getUrl);
+    console.log(reponse.data);
+    return reponse.data;
+  }
+  catch (Error) {
+    console.log(Error);
+    throw Error;
+  }
+};
+
+
+
+export { useGetAxios, UseGetAxiosPageing, UseGetAxiosSearch };
