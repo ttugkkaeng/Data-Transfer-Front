@@ -18,12 +18,12 @@ export interface returnJsonType {
   first: boolean
   last: boolean
   number: number
-  numberOfElements: boolean
+  numberOfElements: number
   pagealbe: object
   size: number
   sort: object
   totalElements: number
-  titalPage: number
+  totalPages: number
 }
 
 export interface urlType {
@@ -31,3 +31,5 @@ export interface urlType {
   getSerchURL: string;
   postSubmitUrl: string;
 }
+
+export interface pageInfoType { totalPage: number; numberOfElement: number; }

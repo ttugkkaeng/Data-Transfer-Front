@@ -1,10 +1,11 @@
 import App from '../App'
-import PostForm from '../components/Molecules/PostForm';
+import SearchForm from '../components/Molecules/SearchForm';
 import GetTableAndPostData from '../components/Organisms/GetTableAndPostData';
 import InfoText from '../components/Organisms/InfoText';
 import ErrorPage from '../components/Pages/ErrorPage';
 import LoginPage from '../components/Pages/LoginPage';
 
+enum serviceList { transbefore = 'trans-before', transafter = 'trans-after', transend = 'trans-end' }
 export const Router = [
   {
     path: '/',
@@ -12,9 +13,9 @@ export const Router = [
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <InfoText /> },
-      { path: "load-wsslist", element: <GetTableAndPostData /> },
-      { path: "transfer-state-list", element: <GetTableAndPostData /> },
-      { path: "view-transfer-endlist", element: <GetTableAndPostData /> },
+      { path: "load-wsslist", element: <GetTableAndPostData serviceType={serviceList.transbefore} /> },
+      { path: "transfer-state-list", element: <GetTableAndPostData serviceType={serviceList.transafter} /> },
+      { path: "view-transfer-endlist", element: <GetTableAndPostData serviceType={serviceList.transend} /> },
     ],
   },
   {
@@ -24,6 +25,6 @@ export const Router = [
   },
   {
     path: '/testComponent',
-    element: <PostForm />
+    element: <ErrorPage />
   }
 ];
