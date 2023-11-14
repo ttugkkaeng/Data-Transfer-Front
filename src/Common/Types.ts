@@ -5,6 +5,7 @@
 //   createdDate = 'createdDate',
 //   migrateFlag = 'migrateFlag',
 // }
+
 type content = {
   projectCode: string;
   projectName: string;
@@ -12,6 +13,7 @@ type content = {
   createdDate: string;
   migrateFlag: string;
 }
+
 export interface returnJsonType {
   content: Array<content>;
   empty: boolean

@@ -16,17 +16,19 @@ import PageIndex from '../Atoms/PageIndex';
  */
 
 enum serviceList { transbefore = 'trans-before', transafter = 'trans-after', transend = 'trans-end' }
-type propsType = { serviceType: serviceList }
+type ServicePropsType = { serviceType: serviceList }
 
-export default function GetTableAndPostData({ serviceType }: propsType) {
+export default function GetTableAndPostData({ serviceType }: ServicePropsType) {
   const [getViewList, setGetViewList] = useState<returnJsonType | undefined>(undefined);
   const [search, setSearch] = useState<string>('');
 
   const urlset: urlType = setUrl(serviceType);
   const pageSize = "10";
 
-  const [pageInfo, setPageInfo] = useState<pageInfoType | undefined>();
+  const [pageInfo, setPageInfo] = useState<pageInfoType>({ totalPage: 0, numberOfElement: 0 });
   const [pageIndex, setPageIndex] = useState(0);
+
+  const [postProjectList, setPostProjectList] = useState<Array<string>>([]);
 
   useEffect(() => {
     async function axiosGetPaging() {
@@ -47,9 +49,10 @@ export default function GetTableAndPostData({ serviceType }: propsType) {
   return (
     <div className='table-container'>
       <SearchForm setPageIndex={setPageIndex} setSearch={setSearch} />
-      <Table getViewList={getViewList} />
+      <Table getViewList={getViewList} setPostProjectList={setPostProjectList} postProjectList={postProjectList} />
+      <PageIndex pageInfo={pageInfo} pageIndex={pageIndex} setPageIndex={setPageIndex} />
       <BtnSubmit children={undefined}></BtnSubmit>
-      <PageIndex pageInfo={pageInfo} startIndex={pageIndex} setPageIndex={setPageIndex} />
+      <p>{JSON.stringify(postProjectList)}</p>
     </div >
   )
 }

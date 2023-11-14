@@ -1,11 +1,30 @@
 import './Table.css';
 import { returnJsonType } from '../../Common/Types';
+import React, { SetStateAction } from 'react';
 
 type propsType = {
   getViewList: returnJsonType | undefined;
+  setPostProjectList: React.Dispatch<SetStateAction<Array<string>>>
+  postProjectList: Array<string>
 }
 
-export default function Table({ getViewList }: propsType) {
+export default function Table({ getViewList, setPostProjectList, postProjectList }: propsType) {
+  // const handleCheckBox = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+  //   setChecked((prev) => !prev)
+  //   if (checked) setPostProjectList((prev) => [...prev, target.value]);
+  //   else setPostProjectList((prev) => ㅇㅅㅇ);
+  // }
+
+  const handleCheckBox = (projectCode: string, flag: boolean) => {
+    if (flag) {
+      const newViewList = [...postProjectList, projectCode]
+      setPostProjectList(newViewList)
+    } else {
+      const newViewList = postProjectList.filter(e => e !== projectCode)
+      setPostProjectList(newViewList)
+    }
+  }
+
   return (
     <div className='table-area'>
       <table className='project-table'>
@@ -22,7 +41,12 @@ export default function Table({ getViewList }: propsType) {
               getViewList.content.map((item, index) => (
                 <tr className='protr' key={item.projectCode}>
                   <td>
-                    <input type='checkbox' name={`checkbox${index}`} value='test' />
+                    <input type='checkbox'
+                      name={`checkbox${index}`}
+                      checked={postProjectList.some(e => e === item.projectCode)}
+                      onChange={(e) => {
+                        handleCheckBox(item.projectCode, e.target.checked)
+                      }} />
                   </td>
                   <td>
                     {`(${item.projectCode}) `}{item.projectName}
