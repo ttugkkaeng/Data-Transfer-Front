@@ -45,6 +45,13 @@ const UseGetAxiosSearch = async (URL: string, searchKeyWord: string, startIndex:
   }
 };
 
+const UsePostAxiosCreateJiraProject = (postProjectList: string[]) => {
+  postProjectList.map((item, index) => {
+
+  });
+
+}
 
 
-export { useGetAxios, UseGetAxiosPageing, UseGetAxiosSearch };
+
+export { useGetAxios, UseGetAxiosPageing, UseGetAxiosSearch, UsePostAxiosCreateJiraProject };

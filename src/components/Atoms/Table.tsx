@@ -9,12 +9,6 @@ type propsType = {
 }
 
 export default function Table({ getViewList, setPostProjectList, postProjectList }: propsType) {
-  // const handleCheckBox = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
-  //   setChecked((prev) => !prev)
-  //   if (checked) setPostProjectList((prev) => [...prev, target.value]);
-  //   else setPostProjectList((prev) => ㅇㅅㅇ);
-  // }
-
   const handleCheckBox = (projectCode: string, flag: boolean) => {
     if (flag) {
       const newViewList = [...postProjectList, projectCode]

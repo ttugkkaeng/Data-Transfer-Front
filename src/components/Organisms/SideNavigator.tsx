@@ -10,8 +10,8 @@ export default function SideNavigator() {
   ]
   //const seconditem = ['대상 프로젝트 백업요청', '백업상태 확인'];
   const seconditem = [
-    { value: "대상 프로젝트 백업요청", link: "/requestbackup" },
-    { value: "백업상태 확인", link: "/backcheck" },
+    { value: "대상 프로젝트 백업요청", link: "/load-jira-list" },
+    { value: "백업상태 확인", link: "/check-backup" },
   ]
   return (
     <div className='side-navigator'>

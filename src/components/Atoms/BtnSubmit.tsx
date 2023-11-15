@@ -1,8 +1,9 @@
+import { ReactNode } from 'react';
 import './BtnSubmit.css';
 type propsType = {
-  children: string | undefined
+  children?: ReactNode
 }
-export default function BtnSubmit({ children = '전송' }: propsType) {
+export default function BtnSubmit({ children = "제출" }: propsType) {
   return (
     <button type='submit' className='btnHover blueColor'>{children}</button>
   )

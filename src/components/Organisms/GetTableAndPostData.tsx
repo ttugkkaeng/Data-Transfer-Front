@@ -6,13 +6,14 @@ import { returnJsonType, pageInfoType } from '../../Common/Types';
 import { setUrl } from '../../Common/SetUrl';
 import { urlType } from '../../Common/Types';
 import './GetTableAndPostData.css';
-import { UseGetAxiosSearch, UseGetAxiosPageing } from '../../Common/Axios';
+import { UseGetAxiosSearch, UseGetAxiosPageing, UsePostAxiosCreateJiraProject } from '../../Common/Axios';
 import PageIndex from '../Atoms/PageIndex';
 
 /***
- *  이슈) 
- *  1. 페이지 선택 후 검색을 날리면 index가 초기화가 안돼서 결과가 안뜸(Form쪽에서 최초 호출시 초기화 필요)
- *  2. 검색 후에 페이지 넘버링 선택시 useEffect에 걸린 전체 조회가 걸림(useEffect에서 분기를 걸면될것 같음)
+ *  Outlet1) 테이블 뷰잉 
+ *  지라 프로젝트 생성요청 , 프로젝트 티켓생성요청, 이관상태 확인  공통 호출 컴포넌트
+ *  props의 ServiceType에 따라서 보여질 데이터가 다름.
+ *  컴포넌트 호출시 기본적으로 GET API호출을함
  */
 
 enum serviceList { transbefore = 'trans-before', transafter = 'trans-after', transend = 'trans-end' }
@@ -29,6 +30,11 @@ export default function GetTableAndPostData({ serviceType }: ServicePropsType) {
   const [pageIndex, setPageIndex] = useState(0);
 
   const [postProjectList, setPostProjectList] = useState<Array<string>>([]);
+
+  const handleTableSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); //새로고침방지
+    UsePostAxiosCreateJiraProject(postProjectList);
+  }
 
   useEffect(() => {
     async function axiosGetPaging() {
@@ -49,9 +55,11 @@ export default function GetTableAndPostData({ serviceType }: ServicePropsType) {
   return (
     <div className='table-container'>
       <SearchForm setPageIndex={setPageIndex} setSearch={setSearch} />
-      <Table getViewList={getViewList} setPostProjectList={setPostProjectList} postProjectList={postProjectList} />
-      <PageIndex pageInfo={pageInfo} pageIndex={pageIndex} setPageIndex={setPageIndex} />
-      <BtnSubmit children={undefined}></BtnSubmit>
+      <form onSubmit={handleTableSubmit}>
+        <Table getViewList={getViewList} setPostProjectList={setPostProjectList} postProjectList={postProjectList} />
+        <PageIndex pageInfo={pageInfo} pageIndex={pageIndex} setPageIndex={setPageIndex} />
+        <BtnSubmit />
+      </form>
       <p>{JSON.stringify(postProjectList)}</p>
     </div >
   )
