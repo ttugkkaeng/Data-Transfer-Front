@@ -10,7 +10,7 @@ export const setUrl = (serviceType: string) => {
     case 'trans-before':
       urlObject.getViewURL = 'http://localhost:8080/transfer/project/before/list';
       urlObject.getSerchURL = 'http://localhost:8080/transfer/project/before/list/search';
-      urlObject.postSubmitUrl = 'http://localhost:8080/transfer/project/1/create';
+      urlObject.postSubmitUrl = 'http://localhost:8080/transfer/project/1/create/bulk';
       return urlObject;
     case 'trans-after':
       urlObject.getViewURL = 'http://localhost:8080/transfer/project/after/list';

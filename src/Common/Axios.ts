@@ -45,11 +45,23 @@ const UseGetAxiosSearch = async (URL: string, searchKeyWord: string, startIndex:
   }
 };
 
-const UsePostAxiosCreateJiraProject = (postProjectList: string[]) => {
-  postProjectList.map((item, index) => {
+/**  personalId 는 1로 고정
+*    projectCodeList= 1,2,3,4,65,232,3123,
+*/
 
-  });
-
+const UsePostAxiosCreateJiraProject = async (postProjectList: string[], postUrl: string) => {
+  if (postProjectList.length > 0) {
+    const data = { projectCodeList: postProjectList };
+    try {
+      const response = await axios.post(postUrl, data);
+      console.log(response);
+      return response;
+    }
+    catch (Error) {
+      console.log(Error)
+      throw Error;
+    }
+  }
 }
 
 

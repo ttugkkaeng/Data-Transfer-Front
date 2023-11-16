@@ -33,7 +33,8 @@ export default function GetTableAndPostData({ serviceType }: ServicePropsType) {
 
   const handleTableSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); //새로고침방지
-    UsePostAxiosCreateJiraProject(postProjectList);
+    const postReturnData = UsePostAxiosCreateJiraProject(postProjectList, urlset.postSubmitUrl);
+    console.log(postReturnData);
   }
 
   useEffect(() => {
