@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import BtnSubmit from '../Atoms/BtnSubmit';
 import Table from '../Atoms/Table';
 import SearchForm from '../Molecules/SearchForm';
-import { returnJsonType, pageInfoType } from '../../Common/Types';
+import { returnJsonType, pageInfoType, PostReturnJsonType } from '../../Common/Types';
 import { setUrl } from '../../Common/SetUrl';
 import { urlType } from '../../Common/Types';
 import './GetTableAndPostData.css';
@@ -33,7 +33,7 @@ export default function GetTableAndPostData({ serviceType }: ServicePropsType) {
 
   const handleTableSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); //새로고침방지
-    const postReturnData = UsePostAxiosCreateJiraProject(postProjectList, urlset.postSubmitUrl);
+    const postReturnData: PostReturnJsonType = UsePostAxiosCreateJiraProject(postProjectList, urlset.postSubmitUrl);
     console.log(postReturnData);
   }
 

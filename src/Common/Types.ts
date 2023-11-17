@@ -6,7 +6,7 @@
 //   migrateFlag = 'migrateFlag',
 // }
 
-type content = {
+type GetWssContent = {
   projectCode: string;
   projectName: string;
   projectFlag: string;
@@ -14,8 +14,16 @@ type content = {
   migrateFlag: string;
 }
 
+type PostJiraProjcetContent = {
+  key: string;
+  jiraProjectName: string;
+  migratedDate: string;
+  projectCode: string;
+  wssProjectName: string;
+}
+
 export interface returnJsonType {
-  content: Array<content>;
+  content: Array<GetWssContent>;
   empty: boolean
   first: boolean
   last: boolean
@@ -27,6 +35,21 @@ export interface returnJsonType {
   totalElements: number
   totalPages: number
 }
+
+export interface PostReturnJsonType {
+  content: Array<PostJiraProjcetContent>;
+  empty: boolean
+  first: boolean
+  last: boolean
+  number: number
+  numberOfElements: number
+  pagealbe: object
+  size: number
+  sort: object
+  totalElements: number
+  totalPages: number
+}
+
 
 export interface urlType {
   getViewURL: string;

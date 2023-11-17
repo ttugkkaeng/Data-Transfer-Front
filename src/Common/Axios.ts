@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { returnJsonType } from './Types';
+import { returnJsonType, PostReturnJsonType } from './Types';
 
 const useGetAxios = (URL: string, getParamKey: string, getParamValue: string) => {
   const getUrl = `${URL}?${getParamKey}=${getParamValue}`;
@@ -49,11 +49,13 @@ const UseGetAxiosSearch = async (URL: string, searchKeyWord: string, startIndex:
 *    projectCodeList= 1,2,3,4,65,232,3123,
 */
 
-const UsePostAxiosCreateJiraProject = async (postProjectList: string[], postUrl: string) => {
+const UsePostAxiosCreateJiraProject = async (postProjectList: string[], postUrl: string)
+  : Promise<PostReturnJsonType | undefined> => {
   if (postProjectList.length > 0) {
-    const data = { projectCodeList: postProjectList };
+    const data = { projectCode: postProjectList };
+    console.log(postUrl);
     try {
-      const response = await axios.post(postUrl, data);
+      const response: PostReturnJsonType = await axios.post(postUrl, data);
       console.log(response);
       return response;
     }
@@ -61,6 +63,9 @@ const UsePostAxiosCreateJiraProject = async (postProjectList: string[], postUrl:
       console.log(Error)
       throw Error;
     }
+  }
+  else {
+    return
   }
 }
 
