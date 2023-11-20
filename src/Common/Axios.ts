@@ -1,25 +1,18 @@
 import axios from 'axios';
 import { returnJsonType, PostReturnJsonType } from './Types';
+import { mappingViewData } from './UtilFunction';
 
-const useGetAxios = (URL: string, getParamKey: string, getParamValue: string) => {
-  const getUrl = `${URL}?${getParamKey}=${getParamValue}`;
-  axios.get(getUrl)
-    .then((Respone) => {
-      console.log(Respone.data);
-      return Respone.data;
-    })
-    .catch((Error) => {
-      console.log(Error)
-    })
-}
 
-const UseGetAxiosPageing = async (URL: string, startIndex: number, pageSize: string,)
+
+const UseGetAxiosPageing = async (serviceType: string, URL: string, startIndex: number, pageSize: string,)
   : Promise<returnJsonType | undefined> => {
   const indexingParam = `?pageIndex=${startIndex}&&pageSize=${pageSize}`;
   const getUrl = URL + indexingParam;
   console.log(getUrl);
   try {
     const reponse = await axios.get(getUrl);
+    if (reponse.data.content.length === 0) throw new Error('API호출이 정상적이지 않습니다.');
+    if (serviceType === 'trans-after') reponse.data = mappingViewData(reponse.data);
     console.log(reponse.data);
     return reponse.data;
   }
@@ -29,13 +22,15 @@ const UseGetAxiosPageing = async (URL: string, startIndex: number, pageSize: str
   }
 };
 
-const UseGetAxiosSearch = async (URL: string, searchKeyWord: string, startIndex: number, pageSize: string)
+const UseGetAxiosSearch = async (serviceType: string, URL: string, searchKeyWord: string, startIndex: number, pageSize: string)
   : Promise<returnJsonType | undefined> => {
   const indexingParam = `?searchKeyWord=${searchKeyWord}&pageIndex=${startIndex}&pageSize=${pageSize}`;
   const getUrl = URL + indexingParam;
   console.log(getUrl);
   try {
     const reponse = await axios.get(getUrl);
+    if (reponse.data.content.length === 0) throw new Error('API호출이 정상적이지 않습니다.');
+    if (serviceType === 'trans - after') reponse.data = mappingViewData(reponse.data);
     console.log(reponse.data);
     return reponse.data;
   }
@@ -56,7 +51,6 @@ const UsePostAxiosCreateJiraProject = async (postProjectList: string[], postUrl:
     console.log(postUrl);
     try {
       const response: PostReturnJsonType = await axios.post(postUrl, data);
-      console.log(response);
       return response;
     }
     catch (Error) {
@@ -71,4 +65,4 @@ const UsePostAxiosCreateJiraProject = async (postProjectList: string[], postUrl:
 
 
 
-export { useGetAxios, UseGetAxiosPageing, UseGetAxiosSearch, UsePostAxiosCreateJiraProject };
+export { UseGetAxiosPageing, UseGetAxiosSearch, UsePostAxiosCreateJiraProject };

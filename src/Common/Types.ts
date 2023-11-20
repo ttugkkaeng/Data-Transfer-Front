@@ -6,7 +6,7 @@
 //   migrateFlag = 'migrateFlag',
 // }
 
-type GetWssContent = {
+export type GetWssContent = {
   projectCode: string;
   projectName: string;
   projectFlag: string;
@@ -50,7 +50,19 @@ export interface PostReturnJsonType {
   totalPages: number
 }
 
-
+export const emptyJson: returnJsonType = {
+  content: [],
+  empty: false,
+  first: false,
+  last: false,
+  number: 0,
+  numberOfElements: 0,
+  pagealbe: {},
+  size: 0,
+  sort: {},
+  totalElements: 0,
+  totalPages: 0
+}
 export interface urlType {
   getViewURL: string;
   getSerchURL: string;
