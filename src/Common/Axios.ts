@@ -29,7 +29,10 @@ const UseGetAxiosSearch = async (serviceType: string, URL: string, searchKeyWord
   console.log(getUrl);
   try {
     const reponse = await axios.get(getUrl);
-    if (reponse.data.content.length === 0) throw new Error('API호출이 정상적이지 않습니다.');
+    if (reponse.data.content.length === 0) {
+      alert("검색결과가 없습니다.");
+      throw new Error('검색결과가 없습니다.');
+    }
     if (serviceType === 'trans - after') reponse.data = mappingViewData(reponse.data);
     console.log(reponse.data);
     return reponse.data;
@@ -59,7 +62,7 @@ const UsePostAxiosCreateJiraProject = async (postProjectList: string[], postUrl:
     }
   }
   else {
-    return
+    throw Error;
   }
 }
 

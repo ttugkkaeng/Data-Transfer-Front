@@ -3,11 +3,11 @@ import BtnSubmit from '../Atoms/BtnSubmit';
 import Table from '../Atoms/Table';
 import SearchForm from '../Molecules/SearchForm';
 import { returnJsonType, pageInfoType } from '../../Common/Types';
-import { setUrl } from '../../Common/SetUrl';
 import { urlType } from '../../Common/Types';
 import './GetTableAndPostData.css';
 import { UseGetAxiosSearch, UseGetAxiosPageing, UsePostAxiosCreateJiraProject } from '../../Common/Axios';
 import PageIndex from '../Atoms/PageIndex';
+import { setUrl } from '../../Common/UtilFunction';
 
 /***
  *  Outlet1) 테이블 뷰잉 
@@ -52,7 +52,7 @@ export default function GetTableAndPostData({ serviceType }: ServicePropsType) {
       if (result !== undefined) setPageInfo({ totalPage: result.totalPages, numberOfElement: result.numberOfElements });
     }
     axiosGetPaging();
-  }, [pageIndex, search, serviceType])
+  }, [pageIndex, search, serviceType, urlset.getSerchURL, urlset.getViewURL])
 
   return (
     <div className='table-container'>

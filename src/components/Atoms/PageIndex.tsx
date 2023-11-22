@@ -1,4 +1,6 @@
 import { pageInfoType } from '../../Common/Types';
+import { setIndexNumber } from '../../Common/UtilFunction';
+import './PageIndex.css'
 
 type PageIndexPropsType = {
   pageInfo: pageInfoType
@@ -21,10 +23,13 @@ export default function PageIndex({ pageInfo, pageIndex, setPageIndex }: PageInd
     }
     setPageIndex(pageIndex - 1)
   }
-
+  const pagingNumber = setIndexNumber(pageInfo.totalPage, pageIndex + 1);
   return (
-    <div>
+    <div className='pageNumverSelector'>
       <button className='btn-previous' onClick={handleIndexMinus}>Previous</button>
+      {pagingNumber.map((item, index) => (
+        <div className='pageNumber' key={index}>{item}</div>
+      ))}
       <button className='btn-next' onClick={handleIndexplus}>Next</button>
     </div>
   )
