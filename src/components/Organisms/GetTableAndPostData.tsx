@@ -25,7 +25,7 @@ export default function GetTableAndPostData({ serviceType }: ServicePropsType) {
   const [search, setSearch] = useState<string>('');
 
   const urlset: urlType = setUrl(serviceType);
-  const pageSize = "10";
+  const pageSize = "15";
 
   const [pageInfo, setPageInfo] = useState<pageInfoType>({ totalPage: 0, numberOfElement: 0 });
   const [pageIndex, setPageIndex] = useState(0);

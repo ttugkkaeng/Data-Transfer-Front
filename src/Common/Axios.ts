@@ -2,6 +2,7 @@ import axios from 'axios';
 import { returnJsonType, PostReturnJsonType } from './Types';
 import { mappingViewData } from './UtilFunction';
 
+const noDataError = new Error('API 호출결과가 없습니다.')
 
 
 const UseGetAxiosPageing = async (serviceType: string, URL: string, startIndex: number, pageSize: string,)
@@ -38,7 +39,7 @@ const UseGetAxiosSearch = async (serviceType: string, URL: string, searchKeyWord
     return reponse.data;
   }
   catch (Error) {
-    console.log(Error);
+    throw noDataError;
   }
 };
 
@@ -61,7 +62,7 @@ const UsePostAxiosCreateJiraProject = async (postProjectList: string[], postUrl:
     }
   }
   else {
-    console.log('데이터 크기가 0')
+    throw noDataError;
   }
 }
 

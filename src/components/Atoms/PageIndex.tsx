@@ -33,7 +33,8 @@ export default function PageIndex({ pageInfo, pageIndex, setPageIndex }: PageInd
       {pagingNumber.map((item, index) => (
         item === (pageIndex + 1) ?
           <button className='page-number-select' type='button' key={index} value={item - 1}>{item}</button>
-          : <button className='page-number-not-select' type='button' key={index} value={item - 1} onClick={() => handlePageIndex(item - 1)}>{item}</button>
+          : <button className='page-number-not-select' type='button' key={index} value={item - 1}
+            onClick={() => handlePageIndex(item - 1)}>{item}</button>
       ))}
       <button className='btn-next' type='button' onClick={handleIndexplus}>Next</button>
     </div>

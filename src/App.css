@@ -138,4 +138,5 @@ table {
 :root {
 	--header-height: 64px;
 	--footer-height: 64px;
+	--line-border: 2px;
 }
