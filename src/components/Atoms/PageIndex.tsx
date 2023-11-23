@@ -23,14 +23,19 @@ export default function PageIndex({ pageInfo, pageIndex, setPageIndex }: PageInd
     }
     setPageIndex(pageIndex - 1)
   }
+  const handlePageIndex = (pageIndex: number) => {
+    setPageIndex(pageIndex);
+  }
   const pagingNumber = setIndexNumber(pageInfo.totalPage, pageIndex + 1);
   return (
-    <div className='pageNumverSelector'>
-      <button className='btn-previous' onClick={handleIndexMinus}>Previous</button>
+    <div className='page-number-selector'>
+      <button className='btn-previous' type='button' onClick={handleIndexMinus}>Previous</button>
       {pagingNumber.map((item, index) => (
-        <div className='pageNumber' key={index}>{item}</div>
+        item === (pageIndex + 1) ?
+          <button className='page-number-select' type='button' key={index} value={item - 1}>{item}</button>
+          : <button className='page-number-not-select' type='button' key={index} value={item - 1} onClick={() => handlePageIndex(item - 1)}>{item}</button>
       ))}
-      <button className='btn-next' onClick={handleIndexplus}>Next</button>
+      <button className='btn-next' type='button' onClick={handleIndexplus}>Next</button>
     </div>
   )
 }

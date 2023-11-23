@@ -39,7 +39,6 @@ const UseGetAxiosSearch = async (serviceType: string, URL: string, searchKeyWord
   }
   catch (Error) {
     console.log(Error);
-    throw Error;
   }
 };
 
@@ -62,7 +61,7 @@ const UsePostAxiosCreateJiraProject = async (postProjectList: string[], postUrl:
     }
   }
   else {
-    throw Error;
+    console.log('데이터 크기가 0')
   }
 }
 

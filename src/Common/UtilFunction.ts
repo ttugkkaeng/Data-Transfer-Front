@@ -53,19 +53,20 @@ export const setUrl = (serviceType: string) => {
 
 export function setIndexNumber(totalPage: number, pageIndex: number): number[] {
   const tempArray: number[] = [];
+  const offset = 3;
   switch (true) {
-    case pageIndex <= 3:
-      for (let i = 1; i <= pageIndex + 3 && i <= totalPage; i++) {
+    case pageIndex <= offset:
+      for (let i = 1; i <= pageIndex + offset && i <= totalPage; i++) {
         tempArray.push(i);
       }
       break;
-    case pageIndex > 3 && pageIndex < totalPage - 3:
-      for (let i = pageIndex - 3; i <= pageIndex + 3; i++) {
+    case pageIndex > offset && pageIndex < totalPage - offset:
+      for (let i = pageIndex - offset; i <= pageIndex + offset; i++) {
         tempArray.push(i)
       }
       break;
     case pageIndex >= totalPage - 3:
-      for (let i = pageIndex - 3; i <= totalPage; i++) {
+      for (let i = pageIndex - offset; i <= totalPage; i++) {
         tempArray.push(i)
       }
       break;

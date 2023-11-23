@@ -34,7 +34,7 @@ export default function GetTableAndPostData({ serviceType }: ServicePropsType) {
 
   const handleTableSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); //새로고침방지
-    const postReturnData = UsePostAxiosCreateJiraProject(postProjectList, urlset.postSubmitUrl);
+    const postReturnData = UsePostAxiosCreateJiraProject(postProjectList, urlset.postSubmitUrl)
     console.log(postReturnData);
   }
 
@@ -52,12 +52,12 @@ export default function GetTableAndPostData({ serviceType }: ServicePropsType) {
       if (result !== undefined) setPageInfo({ totalPage: result.totalPages, numberOfElement: result.numberOfElements });
     }
     axiosGetPaging();
-  }, [pageIndex, search, serviceType, urlset.getSerchURL, urlset.getViewURL])
+  }, [pageIndex, search, serviceType])
 
   return (
     <div className='table-container'>
       <SearchForm setPageIndex={setPageIndex} setSearch={setSearch} />
-      <form onSubmit={handleTableSubmit}>
+      <form onSubmit={(e) => handleTableSubmit(e)}>
         <Table getViewList={getViewList} setPostProjectList={setPostProjectList} postProjectList={postProjectList} />
         <PageIndex pageInfo={pageInfo} pageIndex={pageIndex} setPageIndex={setPageIndex} />
         <p>{JSON.stringify(postProjectList)}</p>

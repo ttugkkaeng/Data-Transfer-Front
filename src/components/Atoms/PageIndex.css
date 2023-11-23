@@ -1,5 +1,16 @@
-.pageNumverSelector {
+.page-number-selector {
   background-color: #dfdfdf;
   width: 70%;
   display: flex;
+}
+
+.page-number-not-select {
+  margin-left: 10px;
+  margin-right: 10px;
+  opacity: 0.5;
+}
+
+.page-number-select {
+  margin-left: 10px;
+  margin-right: 10px;
 }
