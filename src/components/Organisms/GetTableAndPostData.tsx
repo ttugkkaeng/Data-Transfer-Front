@@ -58,9 +58,9 @@ export default function GetTableAndPostData({ serviceType }: ServicePropsType) {
     <div className='table-container'>
       <SearchForm setPageIndex={setPageIndex} setSearch={setSearch} />
       <form onSubmit={(e) => handleTableSubmit(e)}>
+        <p>{JSON.stringify(postProjectList)}</p>
         <Table getViewList={getViewList} setPostProjectList={setPostProjectList} postProjectList={postProjectList} />
         <PageIndex pageInfo={pageInfo} pageIndex={pageIndex} setPageIndex={setPageIndex} />
-        <p>{JSON.stringify(postProjectList)}</p>
         <BtnSubmit />
       </form>
     </div >

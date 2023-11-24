@@ -7,7 +7,10 @@ type PageIndexPropsType = {
   pageIndex: number;
   setPageIndex: React.Dispatch<React.SetStateAction<number>>
 }
-
+/**
+ *  테이블 페이지 선택하는 컴포넌트
+ *  index가 API를 호출할때 0부터 시작해서 임의로 여기서는 +1 ,-1로 가감연산하여 사용.
+ */
 export default function PageIndex({ pageInfo, pageIndex, setPageIndex }: PageIndexPropsType) {
   const handleIndexplus = () => {
     if (pageIndex >= pageInfo?.totalPage - 1) {
