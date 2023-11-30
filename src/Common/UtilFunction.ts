@@ -1,5 +1,9 @@
 import { returnJsonType, PostReturnJsonType, GetWssContent, emptyJson, urlType } from './Types';
-
+/**
+ * 테이블에서 핸들링할 데이터 오브젝트와 '프로젝트 티켓생성요청' API호출 후 받은 응답 데이터를 맵핑하는 함수
+ * @param retrunJson 
+ * @returns 
+ */
 export function mappingViewData(retrunJson: PostReturnJsonType | undefined): returnJsonType {
   const tempArray: GetWssContent[] = [];
   let returnArray: returnJsonType;
@@ -21,7 +25,12 @@ export function mappingViewData(retrunJson: PostReturnJsonType | undefined): ret
   }
   return returnArray;
 }
-
+/**
+ * 라우터를 통해서 접근하는 서비스 URL에 따른 API URL 설정함수
+ * trans-end 서비스는 PostUrl이 없을 예정인데 이때 어떻게 처리해야할지 고민중
+ * @param serviceType 
+ * @returns 
+ */
 export const setUrl = (serviceType: string) => {
   const urlObject: urlType = {
     getViewURL: '',
@@ -50,7 +59,12 @@ export const setUrl = (serviceType: string) => {
   return urlObject;
 }
 
-
+/**
+ * 테이블의 페이징을 위한 인덱싱 배열을 만드는 함수.
+ * @param totalPage 
+ * @param pageIndex 
+ * @returns 
+ */
 export function setIndexNumber(totalPage: number, pageIndex: number): number[] {
   const tempArray: number[] = [];
   const offset = 3;
@@ -71,6 +85,7 @@ export function setIndexNumber(totalPage: number, pageIndex: number): number[] {
       }
       break;
     default:
+      tempArray.push(1)
       break;
   }
   return tempArray;
